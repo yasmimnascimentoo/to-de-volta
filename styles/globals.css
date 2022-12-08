@@ -2,25 +2,468 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+  background: #f7f3e6;
+  font-family: Poppins;
 }
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.btn:hover {
+  opacity: 0.8;
+}
+
+.error-msg {
+  font-size: x-small;
+  color: red;
+  transform: 0;
+}
+
+header {
+  background: url("../image/topo.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  height: 330px;
+}
+
+.layout {
+  width: 100%;
+  max-width: 952px;
+  height: 1159px;
+  padding: 50px 20px 60px 20px;
+  margin: 0 auto;
+}
+
+section {
+  width: 100%;
+  height: 1049px;
+}
+
+h1 {
+  color: #19411d;
+  text-align: center;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 120%;
+}
+
+p {
+  color: #4e4e4e;
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+h2,
+h3 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 150%;
+  color: #19411d;
+}
+
+input {
+  width: 100%;
+  border-radius: 10px;
+  border-color: transparent;
+  align-items: center;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 18px;
+  color: black;
+}
+
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
+::-webkit-input-placeholder {
+  color: black;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.box-name,
+.box-data,
+.box-address {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.input-name,
+.input-lastname {
+  width: 48%;
+  min-width: 150px;
+  height: 67px;
+}
+
+.input-cpf,
+.input-email,
+.input-phone,
+.input-birth {
+  max-width: 205px;
+  min-width: 175px;
+  height: 67px;
+}
+
+.input-ddd {
+  max-width: 102px;
+  min-width: 85px;
+  height: 67px;
+}
+
+.input-cep,
+.input-number {
+  max-width: 205px;
+  min-width: 100px;
+  height: 67px;
+}
+
+.input-street,
+.input-neighborhood,
+.input-city {
+  width: 440px;
+  height: 67px;
+}
+
+select {
+  width: 205px;
+  height: 67px;
+  background: #ffffff;
+  border-color: transparent;
+  border-radius: 10px;
+  padding: 20px 30px;
+  font-weight: 400;
+  font-size: 18px;
+  color: black;
+  margin-bottom: 30px;
+}
+
+.input-checkbox {
+  margin-bottom: 0px;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  border-color: transparent !important;
+}
+
+label {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.btn-register {
+  background: #f7b243;
+  border-radius: 45px;
+  width: 220px;
+  height: 72px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 24px;
+  margin-left: auto;
+}
+
+.box-data {
+  flex-wrap: wrap;
+}
+
+.input-email {
+  margin-right: 15px;
+}
+
+footer {
+  background: url("../image/rodape.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 368px;
+}
+
+.text-address,
+.text-direitos,
+.text-privacy,
+.text-termos {
+  color: #4e4e4e;
+}
+
+#modal-modal-title {
+  font-weight: 700;
+  font-size: 36px;
+  color: #094111;
+}
+
+#modal-modal-description {
+  font-weight: 400;
+  font-size: 18px;
+  color: #4e4e4e;
+}
+
+.btn-success {
+  background-color: #094111;
+  width: 220px;
+  height: 72px;
+  color: #ffffff;
+  border-radius: 45px;
+  font-weight: 800;
+  font-size: 24px;
+  border-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#modal-modal-title-error {
+  font-weight: 700;
+  font-size: 36px;
+  color: #cf2a2a;
+}
+
+#modal-modal-description-error {
+  font-weight: 400;
+  font-size: 18px;
+  color: black;
+}
+
+.btn-error {
+  background-color: #cf2a2a;
+  width: 220px;
+  height: 72px;
+  color: #ffffff;
+  border-radius: 45px;
+  font-weight: 800;
+  font-size: 24px;
+  border-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.icon {
+  color: #19411D;
+}
+
+@media screen and (min-width: 1700px) {
+  header {
+    height: 500px;
   }
-  body {
-    color: white;
-    background: black;
+}
+
+@media screen and (max-width: 1024px) {
+  .text-address {
+    max-width: 450px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .MuiBox-root {
+    max-width: 420px;
+    height: 500px;
+  }
+
+  .layout {
+    height: 1300px;
+  }
+
+  .box-name,
+  .box-data,
+  .box-address {
+    flex-wrap: wrap;
+  }
+
+  .input-cpf,
+  .input-email,
+  .input-birth {
+    max-width: 350px;
+    min-width: 175px;
+    height: 67px;
+    margin-right: 0;
+  }
+
+  .input-phone {
+    max-width: 229px;
+  }
+
+  .input-ddd {
+    max-width: 103px;
+  }
+
+  .input-number {
+    max-width: 160px;
+  }
+
+  .input-zip-code {
+    max-width: 160px;
+  }
+
+  .input-street {
+    width: 366px;
+  }
+
+  footer {
+    height: 500px;
+  }
+
+  .footer-box-one {
+    flex-direction: column;
+    margin-top: auto;
+    text-align: center;
+  }
+
+  .footer-box-two {
+    flex-direction: column;
+  }
+
+  .div-box-two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-amarante {
+    margin-bottom: 0.5rem;
+  }
+
+  .text-address,
+  .text-privacy,
+  .text-termos,
+  .text-direitos {
+    margin-bottom: 0.5rem;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .input-neighborhood,
+  .input-city {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .MuiBox-root {
+    max-width: 390px;
+    height: 500px;
+  }
+
+  header {
+    height: 180px;
+  }
+
+  footer {
+    height: 400px;
+  }
+
+  .layout {
+    height: 1850px;
+  }
+
+  .input-name,
+  .input-lastname {
+    width: 374px;
+  }
+
+  .input-cpf,
+  .input-email,
+  .input-birth,
+  .input-zip-code,
+  .input-number,
+  select {
+    max-width: 177px;
+  }
+
+  .input-ddd {
+    max-width: 103px;
+  }
+
+  .input-phone {
+    max-width: 251px;
+  }
+
+  .input-street,
+  .input-neighborhood,
+  .input-city {
+    max-width: 374px;
+  }
+
+  .btn-register {
+    width: 100%;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .footer-box-one {
+    margin-top: auto;
+    text-align: center;
+  }
+
+  .text-address {
+    font-size: 14px;
+    max-width: 372px;
+  }
+
+  .text-direitos {
+    font-size: 13px;
+  }
+
+  .text-privacy {
+    font-size: 14px;
+  }
+
+  .text-termos {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .MuiBox-root {
+    max-width: 300px;
+    height: 600px;
+  }
+
+  .layout {
+    height: 2000px;
+  }
+
+  .input-cpf,
+  .input-cep,
+  .input-email,
+  .input-neighborhood,
+  .input-city,
+  .input-number,
+  .input-zip-code,
+  select,
+  .input-birth {
+    width: 100%;
+    max-width: none;
+  }
+
+  .input-phone {
+    max-width: 210px;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .input-ddd {
+    max-width: 80px;
+  }
+
+  .input-phone {
+    max-width: 70px;
   }
 }
