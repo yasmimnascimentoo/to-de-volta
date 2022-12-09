@@ -137,7 +137,7 @@ export default function Home() {
                 {...register("nome", {
                   required: "Nome é obrigatório!",
                   maxLength: 80,
-                  minLength: { value: 5, message: "Tamanho mínimo 5." },
+                  minLength: 5,
                 })}
               />
               <input
@@ -161,8 +161,8 @@ export default function Home() {
                 placeholder={errors?.cpf ? errors.cpf.message : "CPF"}
                 {...register("cpf", {
                   required: "CPF é obrigatório!",
-                  maxLength: 11,
-                  minLength: 11,
+                  maxLength: 14,
+                  minLength: 14,
                 })}
               />
               <input
@@ -179,8 +179,8 @@ export default function Home() {
                 placeholder={errors?.ddd ? errors.ddd.message : "DDD"}
                 {...register("ddd", {
                   required: "DDD é obrigatório!",
-                  maxLength: 2,
-                  minLength: 2,
+                  maxLength: 4,
+                  minLength: 4,
                 })}
               />
               <InputMask
