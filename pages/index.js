@@ -12,6 +12,7 @@ import Modal from "@mui/material/Modal";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InputMask from "react-input-mask";
 
 const style = {
   width: 678,
@@ -131,17 +132,21 @@ export default function Home() {
             <h2>Dados Pessoais</h2>
             <div className="box-name">
               <input
-                className="input-name"
-                placeholder="Nome"
+                className={`input-name ${errors?.nome && "input-error"}`}
+                placeholder={errors?.nome ? errors.nome.message : "Nome"}
                 {...register("nome", {
                   required: "Nome é obrigatório!",
                   maxLength: 80,
-                  minLength: 5,
+                  minLength: { value: 5, message: "Tamanho mínimo 5." },
                 })}
               />
               <input
-                className="input-lastname"
-                placeholder="Sobrenome"
+                className={`input-lastname ${
+                  errors?.sobrenome && "input-error"
+                }`}
+                placeholder={
+                  errors?.sobrenome ? errors.sobrenome.message : "Sobrenome"
+                }
                 {...register("sobrenome", {
                   required: "Sobrenome é obrigatório!",
                   maxLength: 80,
@@ -150,9 +155,10 @@ export default function Home() {
               />
             </div>
             <div className="box-data">
-              <input
-                className="input-cpf"
-                placeholder="CPF"
+              <InputMask
+                mask="999.999.999-99"
+                className={`input-cpf ${errors?.cpf && "input-error"}`}
+                placeholder={errors?.cpf ? errors.cpf.message : "CPF"}
                 {...register("cpf", {
                   required: "CPF é obrigatório!",
                   maxLength: 11,
@@ -160,77 +166,89 @@ export default function Home() {
                 })}
               />
               <input
-                className="input-email"
-                placeholder="E-mail"
+                className={`input-email ${errors?.email && "input-error"}`}
+                placeholder={errors?.email ? errors.email.message : "E-mail"}
                 type={"email"}
-                {...register("email")}
+                {...register("email", {
+                  required: "E-mail é obrigatório!",
+                })}
               />
-              <input
-                className="input-ddd"
-                placeholder="DDD"
-                type={"number"}
+              <InputMask
+                mask="(99)"
+                className={`input-ddd ${errors?.ddd && "input-error"}`}
+                placeholder={errors?.ddd ? errors.ddd.message : "DDD"}
                 {...register("ddd", {
                   required: "DDD é obrigatório!",
                   maxLength: 2,
                   minLength: 2,
                 })}
               />
-              <input
-                className="input-phone"
-                placeholder="Telefone"
+              <InputMask
+                mask="99999-9999"
+                className={`input-phone ${errors?.telefone && "input-error"}`}
+                placeholder={
+                  errors?.telefone ? errors.telefone.message : "Telefone"
+                }
                 type={"tel"}
-                format={"####-####"}
+                name={"telefone"}
                 {...register("telefone", {
                   required: "Telefone é obrigatório!",
-                  maxLength: 9,
-                  minLength: 9,
+                  maxLength: 10,
+                  minLength: 10,
                 })}
               />
-              <input
-                className="input-birth"
-                placeholder="Nascimento"
+              <InputMask
+                mask="99-99-9999"
+                className={`input-birth ${errors?.nascimento && "input-error"}`}
+                placeholder={
+                  errors?.nascimento ? errors.nascimento.message : "Nascimento"
+                }
                 {...register("nascimento", {
                   required: "Nascimento é obrigatório!",
-                  maxLength: 8,
-                  minLength: 8,
+                  maxLength: 10,
+                  minLength: 10,
                 })}
               />
             </div>
 
             <h3>Endereço</h3>
             <div className="box-address">
-              <input
-                className="input-zip-code"
-                placeholder="CEP"
-                {...register("cep" , {
+              <InputMask
+                mask="99999-999"
+                className={`input-zip-code ${errors?.cep && "input-error"}`}
+                placeholder={errors?.cep ? errors?.cep.message : "CEP"}
+                {...register("cep", {
                   required: "CEP é obrigatório!",
-                  maxLength: 8,
-                  minLength: 8,
+                  maxLength: 9,
+                  minLength: 9,
                 })}
               />
               <input
-                className="input-street"
-                placeholder="Rua"
+                className={`input-street ${errors?.rua && "input-error"}`}
+                placeholder={errors?.rua ? errors.rua.message : "Rua"}
                 {...register("rua", {
                   required: "Rua é obrigatório!",
                   maxLength: 80,
                   minLength: 5,
                 })}
               />
-              <input
-                className="input-number"
-                placeholder="Número"
+              <InputMask
+                mask="999999"
+                className={`input-number ${errors?.numero && "input-error"}`}
+                placeholder={errors?.numero ? errors.numero.message : "Número"}
                 {...register("numero", {
                   required: "Número é obrigatório!",
-                  maxLength: 80,
-                  minLength: 5,
+                  maxLength: 6,
+                  minLength: 1,
                 })}
               />
             </div>
             <div className="box-address">
               <input
-                className="input-neighborhood"
-                placeholder="Bairro"
+                className={`input-neighborhood ${
+                  errors?.bairro && "input-error"
+                }`}
+                placeholder={errors?.bairro ? errors.bairro.message : "Bairro"}
                 {...register("bairro", {
                   required: "Bairro é obrigatório!",
                   maxLength: 80,
@@ -238,8 +256,8 @@ export default function Home() {
                 })}
               />
               <input
-                className="input-city"
-                placeholder="Cidade"
+                className={`input-city ${errors?.cidade && "input-error"}`}
+                placeholder={errors?.cidade ? errors.cidade.message : "Cidade"}
                 {...register("cidade", {
                   required: "Cidade é obrigatório!",
                   maxLength: 80,
@@ -338,13 +356,17 @@ export default function Home() {
             51111-011 (81) 2123-5655
           </span>
           <div>
-            <FacebookIcon className="icon" fill="red"
+            <FacebookIcon
+              className="icon"
+              fill="red"
               style={{ width: "36px", height: "36px", margin: "0 0.2rem" }}
             />
-            <InstagramIcon className="icon"
+            <InstagramIcon
+              className="icon"
               style={{ width: "36px", height: "36px", margin: "0 0.2rem" }}
             />
-            <LinkedInIcon className="icon"
+            <LinkedInIcon
+              className="icon"
               style={{ width: "36px", height: "36px", margin: "0 0.2rem" }}
             />
           </div>

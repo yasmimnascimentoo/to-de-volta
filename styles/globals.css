@@ -113,7 +113,7 @@ input:focus {
 }
 
 .input-ddd {
-  max-width: 102px;
+  max-width: 103px;
   min-width: 85px;
   height: 67px;
 }
@@ -251,7 +251,25 @@ footer {
 }
 
 .icon {
-  color: #19411D;
+  color: #19411d;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.input-error {
+  border: 2px solid red;
+  color: red;
+}
+.input-error::placeholder {
+  color: red;
 }
 
 @media screen and (min-width: 1700px) {
