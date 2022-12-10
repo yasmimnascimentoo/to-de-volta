@@ -449,9 +449,12 @@ input[type="number"] {
 }
 
 @media screen and (max-width: 375px) {
+  #modal-modal-title {
+    font-size: 26px;
+  }
   .MuiBox-root {
     max-width: 300px;
-    height: 600px;
+    height: 450px;
   }
 
   .layout {
@@ -477,6 +480,12 @@ input[type="number"] {
 }
 
 @media screen and (max-width: 325px) {
+  #modal-modal-title {
+    font-size: 20px;
+  }
+  .MuiBox-root{
+    height: 400px;
+  }
   .input-ddd {
     max-width: 80px;
   }
