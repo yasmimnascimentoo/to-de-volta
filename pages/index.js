@@ -25,7 +25,6 @@ const style = {
   border: "none",
   borderRadius: "10px",
   p: 4,
-  overflowY: "auto",
 };
 
 export default function Home() {

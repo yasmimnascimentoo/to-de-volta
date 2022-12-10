@@ -289,6 +289,7 @@ input[type="number"] {
   .MuiBox-root {
     max-width: 420px;
     height: 500px;
+    overflow-y: auto;
   }
 
   .layout {
@@ -374,7 +375,8 @@ input[type="number"] {
 @media screen and (max-width: 425px) {
   .MuiBox-root {
     max-width: 390px;
-    height: 500px;
+    height: 400px;
+    overflow-y: auto;
   }
 
   header {
@@ -455,6 +457,7 @@ input[type="number"] {
   .MuiBox-root {
     max-width: 300px;
     height: 450px;
+    overflow-y: auto;
   }
 
   .layout {
@@ -485,6 +488,7 @@ input[type="number"] {
   }
   .MuiBox-root{
     height: 400px;
+    overflow-y: auto;
   }
   .input-ddd {
     max-width: 80px;
